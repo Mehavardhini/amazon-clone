@@ -1,19 +1,19 @@
 import './App.css';
 import Header from './components/header/Header';
 import Home from './components/home/Home';
+import Checkout from './components/checkout/Checkout';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
     <Router>
       <div className="App">
+      <Header />
       <Switch>
         <Route path="/checkout">
-          <Header />
-          <h1>There are no products to checkout!</h1>
+          <Checkout/>
         </Route>
         <Route path="/">
-          <Header />
           <Home />
         </Route>
       </Switch>
