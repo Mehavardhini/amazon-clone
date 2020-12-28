@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Product.css'
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import CheckIcon from '@material-ui/icons/Check';
+import { useStateValue } from '../../StateProvider';
 
 function Product({ title, image, price, rating }) {
+
+  const [state, dispatch] = useStateValue();
+  const [showMessage, setShowMessage] = useState(false);
+
+  const addToBasket = () => {
+    setShowMessage(true);
+
+    dispatch({
+      type: 'ADD_TO_BASKET',
+      item: {
+        title, image, price, rating
+      }
+    })
+  }
+
   return (
     <div className="product">
       <div className="product__info">
@@ -22,7 +39,11 @@ function Product({ title, image, price, rating }) {
         alt="product"
         src={image}
       />
-      <button>Add to basket</button>
+      <div class="product__incart" style={{ display: showMessage ? 'flex' : 'none' }}>
+        <CheckIcon />
+        <span>Added to cart</span>
+      </div>
+      <button onClick={addToBasket}>Add to basket</button>
     </div>
   )
 }

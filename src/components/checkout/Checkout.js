@@ -1,7 +1,7 @@
 import React from 'react';
 import './Checkout.css';
 import { Link } from 'react-router-dom';
-import Subtotal from '../subtotal/Subtotal'
+import Subtotal from '../subtotal/Subtotal';
 
 function Checkout() {
   return (

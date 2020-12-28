@@ -36,3 +36,16 @@
   height: 100px;
   margin-bottom: 15px;
 }
+
+.product__incart {
+  /* visibility: hidden; */
+  color: rgb(0, 118, 0);
+  font-size: 12px;
+  display: none;
+  align-items: center;
+}
+
+.product__incart svg{
+  width: 15px;
+  height: 15px;
+}
