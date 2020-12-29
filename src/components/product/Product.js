@@ -5,7 +5,7 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import CheckIcon from '@material-ui/icons/Check';
 import { useStateValue } from '../../StateProvider';
 
-function Product({ title, image, price, rating }) {
+function Product({ id, title, image, price, rating }) {
 
   const [state, dispatch] = useStateValue();
   const [showMessage, setShowMessage] = useState(false);
@@ -16,7 +16,7 @@ function Product({ title, image, price, rating }) {
     dispatch({
       type: 'ADD_TO_BASKET',
       item: {
-        title, image, price, rating
+        id, title, image, price, rating
       }
     })
   }
@@ -39,7 +39,7 @@ function Product({ title, image, price, rating }) {
         alt="product"
         src={image}
       />
-      <div class="product__incart" style={{ display: showMessage ? 'flex' : 'none' }}>
+      <div className="product__incart" style={{ display: showMessage ? 'flex' : 'none' }}>
         <CheckIcon />
         <span>Added to cart</span>
       </div>

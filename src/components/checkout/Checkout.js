@@ -2,8 +2,12 @@ import React from 'react';
 import './Checkout.css';
 import { Link } from 'react-router-dom';
 import Subtotal from '../subtotal/Subtotal';
+import CheckoutProduct from '../checkoutProduct/CheckoutProduct';
+import { useStateValue } from '../../StateProvider';
 
 function Checkout() {
+  const [{basket}, dispatch] = useStateValue();
+
   return (
     <div className="checkout">
       <div className="checkout__left">
@@ -14,6 +18,7 @@ function Checkout() {
         />
         <div>
           <h2 className="checkout__title">Your shopping basket</h2>
+          { basket?.map((itm) => ( <CheckoutProduct product={itm} key={itm.id}/> )) }
         </div>
       </div>
       <div className="checkout__right">
