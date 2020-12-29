@@ -8,12 +8,9 @@
 }
 
 .login__logo {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 20px auto;
     object-fit: contain;
     width: 100px;
-    margin-right: auto;
-    margin-left: auto;
   }
 
 .login__container {
