@@ -48,3 +48,8 @@ export { db, auth };
 //  EEMULATE API CALLS
 // firebase emulators:start
 //  functions[api]: http function initialized ('api endpoint').
+
+
+// DEPLOY ONLY FUNCTIONS
+// upgrade to Blaze plan in firebase, otherwise outbound api calls would not work
+// firebase deploy --only functions
