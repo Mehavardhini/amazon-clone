@@ -45,3 +45,6 @@ export { db, auth };
 // Do you want to use ESLint to catch probable bugs and enforce style? y
 // Do you want to install dependencies with npm now? y
 
+//  EEMULATE API CALLS
+// firebase emulators:start
+//  functions[api]: http function initialized ('api endpoint').

@@ -17,7 +17,6 @@ function Checkout() {
           alt="advertisement"
         />
         <div>
-          <h2>Hello {user}</h2>
           <h3 className="checkout__title">Your shopping basket</h3>
           { basket?.map((itm) => ( <CheckoutProduct product={itm} key={itm.id}/> )) }
         </div>

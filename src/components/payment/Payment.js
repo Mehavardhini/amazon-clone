@@ -7,6 +7,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import { getBasketTotal } from '../../reducer';
 import axios from '../../axios';
+import { db } from '../../firebase';
 
 function Payment() {
 
@@ -46,9 +47,25 @@ function Payment() {
         card: elements.getElement(CardElement)
       }
     }).then(({ paymentIntent }) => {
+
+      db
+        .collection('users')
+        .doc(user?.uid)
+        .collection('orders')
+        .doc(paymentIntent.id)
+        .set({
+          basket: basket,
+          amount: paymentIntent.amount,
+          created: paymentIntent.created
+        })
+
       setProcessing(false);
       setSucceeded(true);
       setError(null);
+
+      dispatch({
+        type: 'EMPTY_BASKET'
+      })
 
       // We don't want the uses to come back to the payment page 
       // by clicking back button, so we replace the url
@@ -74,7 +91,7 @@ function Payment() {
             Delivery Address
           </div>
           <div className="payment__address">
-            <p>{user}</p>
+            <p>{user ? user.email : ''}</p>
             <p>123 Main St</p>
             <p>Seattle</p>
             <p>WA - 98115</p>
@@ -112,7 +129,7 @@ function Payment() {
                   thousandSeperator={true}
                   prefix={"$"}
                 />
-                <button disabled={processing || disabled || succeeded}>
+                <button className="payment__processing" disabled={processing || disabled || succeeded}>
                   { processing ? 'Processing' : 'Buy Now'}
                 </button>
               </div>

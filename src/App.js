@@ -4,6 +4,7 @@ import Home from './components/home/Home';
 import Checkout from './components/checkout/Checkout';
 import Login from './components/login/Login';
 import Payment from './components/payment/Payment';
+import Orders from './components/orders/Orders';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useStateValue } from './StateProvider';
 import { useEffect } from 'react';
@@ -20,7 +21,7 @@ function App() {
     auth.onAuthStateChanged(auth => {
       dispatch({
         type: 'SET_USER',
-        user: auth ? auth.email : null
+        user: auth || null
       })
     })
   }, []);
@@ -35,6 +36,10 @@ function App() {
         <Route path="/checkout">
           <Header />
           <Checkout/>
+        </Route>
+        <Route path="/orders">
+          <Header />
+          <Orders/>
         </Route>
         <Route path="/payment">
           <Header />
