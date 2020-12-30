@@ -22,7 +22,7 @@
   font-weight: bold;
 }
 
-.payment__address, .payment__items {
+.payment__address, .payment__items, .payment__card {
   flex: 0.8;
 }
 

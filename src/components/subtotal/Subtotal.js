@@ -3,6 +3,7 @@ import './Subtotal.css';
 import CurrencyFormat from 'react-currency-format';
 import { useStateValue } from '../../StateProvider';
 import { useHistory } from 'react-router-dom';
+import { getBasketTotal } from '../../reducer';
 
 function Subtotal() {
   const [{ basket }, dispatch] = useStateValue();
@@ -12,7 +13,7 @@ function Subtotal() {
     <div className="subtotal">
       <CurrencyFormat 
         // value={getBasketTotal(basket)} 
-        value={basket?.reduce((total, itm) =>  total + parseFloat(itm.price), 0)}
+        value={ getBasketTotal(basket) }
         decimalScale={2}
         displayType={'text'} 
         thousandSeparator={true} 
