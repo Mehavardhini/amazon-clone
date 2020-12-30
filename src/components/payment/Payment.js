@@ -27,13 +27,15 @@ function Payment() {
         method: 'POST',
         // Stripe expects the total in a currencies subunits
         // for $1, we have to pass as 100.
-        url: `/payment/create?total=${getBasketTotal(basket) * 100}`
+        url: `/payments/create?total=${getBasketTotal(basket) * 100}`
       });
       setClientSecret(response.data.clientSecret)
     }
 
     getClientSecret();
   }, [basket]);
+
+  console.log('secret key >>>>>', clientSecret)
 
   const handleSubmit = e => {
     e.preventDefault();

@@ -18,7 +18,7 @@ const auth = firebaseApp.auth();
 
 export { db, auth };
 
-// Firebase deploy
+// DEPLOY THE APPLICATION
 
 // npm i -g firebase-tools
 
@@ -35,3 +35,13 @@ export { db, auth };
 // npm run build ( run this command if you make changes to code after deploying)
 
 // firebase deploy
+
+
+// CLOUD FUNCTIONS
+
+// firebase init
+// Which Firebase CLI features do you want to set up for this folder? Press Space to select features, then Enter to confirm your choices? Functions: Configure and deploy Cloud Functions
+// What language would you like to use to write Cloud Functions? JS
+// Do you want to use ESLint to catch probable bugs and enforce style? y
+// Do you want to install dependencies with npm now? y
+
